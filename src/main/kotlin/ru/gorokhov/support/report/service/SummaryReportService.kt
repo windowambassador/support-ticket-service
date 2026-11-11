@@ -1,5 +1,6 @@
 package ru.gorokhov.support.report.service
 
+import org.springframework.stereotype.Service
 import ru.gorokhov.support.common.error.ApiException
 import ru.gorokhov.support.report.dto.ReportTicket
 import ru.gorokhov.support.report.dto.SummaryReport
@@ -14,6 +15,7 @@ import java.time.Duration
 import java.time.Instant
 import java.time.temporal.ChronoUnit
 
+@Service
 class SummaryReportService(
     private val dataSource: ReportDataSource,
     private val clock: Clock,
