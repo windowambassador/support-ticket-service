@@ -38,7 +38,7 @@ Workflow [ci.yml](../.github/workflows/ci.yml) выполняет проверк
 
 [setup-gradle](https://github.com/gradle/actions/blob/v6.4.1/setup-gradle/action.yml) по умолчанию проверяет Wrapper JAR. Выбран cache-provider=basic; для веток, отличных от основной, кэш по умолчанию доступен только для чтения. Wrapper отдельно проверяет SHA-256 дистрибутива Gradle 9.7.0 из gradle-wrapper.properties. Версия Java в CI закреплена по основной версии 25, обновление патча выполняет setup-java; Dockerfile использует точный digest JDK/JRE.
 
-Для verify/image GITHUB_TOKEN ограничен contents:read; credentials не сохраняются в checkout. Проверки PR не запрашивают repository secrets, packages:write, доступ к environments или pull_request_target. На BL-25 packages:write добавлен только отдельному заданию publish, разрешённому на main. Для PR из fork может потребоваться разрешение запуска согласно настройкам GitHub. Конфигурация предназначена для GitHub.com и GitHub-hosted runner.
+Для verify/image GITHUB_TOKEN ограничен contents:read; credentials не сохраняются в checkout. Проверки PR не запрашивают repository secrets, packages:write, доступ к environments или pull_request_target. На BL-25 packages:write добавлен только отдельному заданию publish, разрешённому на main. Для PR из fork может потребоваться разрешение запуска согласно настройкам GitHub. Проверки и публикация предназначены для GitHub.com и GitHub-hosted runner; задание доставки BL-26 использует отдельный self-hosted runner.
 
 ## 4. Артефакты и ошибки
 
@@ -138,3 +138,9 @@ SHA-256 исполняемого JAR: cb02ef64621470d02b1154125be2b9ddeeb4123544
 Архивы скачаны в build/bl24-github-test-reports.zip, bl24-github-application.zip и bl24-github-image-metadata.zip. Сведения GitHub и результаты проверки сохранены в build/bl24-github-artifacts.json, bl24-github-run-result.json и bl24-github-verification.json. Срок хранения артефактов этого запуска на GitHub заканчивается 25.11.2026; локальные копии удаляются командой clean.
 
 OPS-06 и AC-12.1 подтверждены реальным запуском. На момент этой проверки PR #1 оставался открытым; последующие действия с ним не являются проверкой отдельной копии. Эти результаты относятся к указанному SHA; после новых коммитов нужен новый успешный запуск. Публикация, развёртывание и проверка блокировки доставки остаются BL-25-BL-27.
+
+## CI в отдельном репозитории
+
+12.11.2026 [PR #1 support-ticket-service-test](https://github.com/VasilevYuV/support-ticket-service-test/pull/1) прошёл verify и image, publish пропущен. После слияния [запуск main](https://github.com/VasilevYuV/support-ticket-service-test/actions/runs/43272882544) проверил коммит 399fa4dc37dc3ab33093e113fa870d29fbbf0c36: 507 успешных выполнений тестов, сборка и публикация образа успешны. Проверены скачанные JUnit XML и release.json; сведения об образе находятся в [результатах BL-25](image-publication.md).
+
+Следующее изменение добавляет [доставку на локальный runner](staging-deployment.md). Его наличие в рабочей копии пока не подтверждает запуск deploy в GitHub Actions.

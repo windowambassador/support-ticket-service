@@ -6,7 +6,7 @@
 
 Стенд предназначен для BL-26 и последующей проверки отката BL-27. Он использует отдельный дистрибутив Ubuntu 24.04 LTS в виртуальной среде WSL 2. У дистрибутива свой диск, пользователи и Docker Engine; ядро и ресурсы виртуальной машины управляются WSL 2. Docker Desktop для этого стенда не используется.
 
-Репозиторий: [support-ticket-service-test](https://github.com/VasilevYuV/support-ticket-service-test). Он приватный. Подготовка runner и его состояние online подтверждают подключение, но не выполнение доставки. Пока исходники и workflow не отправлены в репозиторий, запуск CI для локальной копии невозможен.
+20.11.2026 runner `gorokhov-staging` подключён к [репозиторию Горохова](https://github.com/windowambassador/support-ticket-service). GitHub показывает статус online и метки self-hosted, Linux, X64 и gorokhov-staging. Служба включена в systemd. Проверены запуск штатным PowerShell-скриптом, Docker Engine 29.9.3, Compose 5.7.1 и запуск контейнера от пользователя runner. В GitHub Actions настроен секрет STAGING_DB_PASSWORD. Первый запуск доставки из этого репозитория предстоит выполнить после слияния workflow в main.
 
 ## Конфигурация
 
@@ -17,8 +17,8 @@
 | Каталог виртуального диска Windows | C:\Users\Admin\Documents\PracticeVMs\gorokhov-staging\disk |
 | Пользователь runner | runner |
 | Каталог runner | /opt/actions-runner |
-| Каталог будущего приложения | /srv/support-service |
-| Метка для будущего задания доставки | gorokhov-staging |
+| Каталог приложения | /srv/support-service |
+| Метка задания доставки | gorokhov-staging |
 | Исходная версия runner | 2.338.2 |
 
 Образ Ubuntu загружается с releases.ubuntu.com; его SHA-256 сверяется с SHA256SUMS. Архив runner сверяется с SHA-256 официального release: baebf204307bac6193480852732f0aba2ae97b6c5597c244f4d5558390147c40. Runner может автоматически обновляться после регистрации; фактическая версия проверяется отдельно.
@@ -73,7 +73,7 @@ wsl --terminate gorokhov-support-staging
 
 ## Граница текущего этапа
 
-Подготовка окружения не заменяет BL-26. После разрешения отправки исходников потребуется добавить задание доставки после publish, загрузить конкретный image@sha256, запустить Compose, проверить health и API, сохранить SHA и digest, проверить блокировку доставки при отказе теста. Откат к предыдущему образу относится к BL-27.
+Подготовка окружения не заменяет BL-26. Задание доставки после publish реализовано в следующем изменении: конкретный image@sha256, Compose без сборки, health и API, запись SHA, digest и ID контейнера. Порядок запуска и результаты находятся в [описании доставки](staging-deployment.md). До коммита, слияния и проверки реального задания BL-26 остаётся незавершённым. Откат к предыдущему образу относится к BL-27.
 
 ## Выполненные проверки
 
@@ -87,7 +87,7 @@ Runner зарегистрирован 12.11.2026 в VasilevYuV/support-ticket-se
 
 Фактические версии: Docker Engine 29.9.3, Compose 5.7.1, Actions runner 2.338.2, ядро 5.15.167.4-microsoft-standard-WSL2. После применения wsl.conf проверены systemd, работа Docker и отсутствие автомонтирования /mnt/c. В Linux работает один удерживающий процесс sleep infinity; Windows запускает для него launcher и дочерний wsl.exe. Docker Desktop остаётся остановленным.
 
-Материалы проверки: build/vm-install-host.log, vm-runner-registration.log, vm-runner-status.json и local-staging-verification.json. Credentials runner находятся внутри виртуального диска, в Git не добавляются. В новом репозитории веток нет, push не выполнялся. Состояние online подтверждает готовность принимать задания, но ни один pipeline этой копии пока не запускался.
+Материалы проверки: build/vm-install-host.log, vm-runner-registration.log, vm-runner-status.json и local-staging-verification.json. Credentials runner находятся внутри виртуального диска, в Git не добавляются. В новом репозитории опубликованы main и feature-c/pull-request-ci. PR #1 прошёл CI и слит; первая публикация в GHCR успешна. Этот запуск выполнялся на GitHub-hosted runner. Локальный runner пока не выполнял доставку через pipeline.
 
 ## Источники
 

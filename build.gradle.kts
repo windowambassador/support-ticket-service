@@ -180,7 +180,7 @@ val checkTextConventions =
                     "*.gradle.kts",
                     "gradle/*.toml",
                     "Dockerfile",
-                    "compose.yaml",
+                    "compose*.yaml",
                     ".dockerignore",
                     ".env.example",
                 )
