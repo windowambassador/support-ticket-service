@@ -1,0 +1,4 @@
+services:
+  app:
+    image: ${APP_IMAGE:?Укажите образ по digest}
+    build: !reset null
