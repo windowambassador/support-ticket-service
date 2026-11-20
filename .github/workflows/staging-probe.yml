@@ -1,0 +1,24 @@
+name: Isolated staging health probe
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  probe:
+    if: github.ref == 'refs/heads/main'
+    runs-on: [self-hosted, Linux, X64, gorokhov-staging]
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Проверить отказ health check на отдельном проекте
+        run: |
+          set -euo pipefail
+          project="health-probe-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          export APP_IMAGE="$(python3 -c 'import json;print(json.load(open("/srv/support-service/current.json"))["image"])')"
+          export APP_PORT=18082 DB_PASSWORD="$(openssl rand -hex 32)"
+          override="$RUNNER_TEMP/$project.yaml"
+          printf 'services:\n  app:\n    healthcheck:\n      test: ["CMD", "false"]\n      interval: 1s\n      start_period: 0s\n      retries: 1\n' > "$override"
+          compose=(docker compose -p "$project" -f compose.yaml -f compose.staging.yaml -f "$override")
+          trap '"${compose[@]}" down -v' EXIT
+          "${compose[@]}" up -d --no-build --pull never --wait --wait-timeout 90
