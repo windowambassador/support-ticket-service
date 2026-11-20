@@ -1,12 +1,14 @@
 # Локальный стенд и GitHub Actions runner
 
+Итоговая проверка в windowambassador/support-ticket-service: [отчёт, идентификаторы образов и ссылки на CI](final-report.md). Датированные результаты ниже относятся к указанным этапам разработки.
+
 **Автор:** Горохов Георгий, 4П1.23
 
 ## Назначение
 
 Стенд предназначен для BL-26 и последующей проверки отката BL-27. Он использует отдельный дистрибутив Ubuntu 24.04 LTS в виртуальной среде WSL 2. У дистрибутива свой диск, пользователи и Docker Engine; ядро и ресурсы виртуальной машины управляются WSL 2. Docker Desktop для этого стенда не используется.
 
-20.11.2026 runner `gorokhov-staging` подключён к [репозиторию Горохова](https://github.com/windowambassador/support-ticket-service). GitHub показывает статус online и метки self-hosted, Linux, X64 и gorokhov-staging. Служба включена в systemd. Проверены запуск штатным PowerShell-скриптом, Docker Engine 29.9.3, Compose 5.7.1 и запуск контейнера от пользователя runner. В GitHub Actions настроен секрет STAGING_DB_PASSWORD. Первый запуск доставки из этого репозитория предстоит выполнить после слияния workflow в main.
+20.11.2026 runner `gorokhov-staging` подключён к [репозиторию Горохова](https://github.com/windowambassador/support-ticket-service). GitHub показывает статус online и метки self-hosted, Linux, X64 и gorokhov-staging. Служба включена в systemd. Проверены запуск штатным PowerShell-скриптом, Docker Engine 29.9.3, Compose 5.7.1 и запуск контейнера от пользователя runner. В GitHub Actions настроен секрет STAGING_DB_PASSWORD. Результаты первого запуска и отката приведены в итоговом отчёте.
 
 ## Конфигурация
 

@@ -1,0 +1,256 @@
+{
+  "first": {
+    "id": 44729423585,
+    "url": "https://github.com/windowambassador/support-ticket-service/actions/runs/44729423585",
+    "sha": "02a32e760e10e12acf75aedcd32a86a09efb6a65",
+    "conclusion": "success",
+    "jobs": {
+      "Format, build and test": "success",
+      "Build Docker image": "success",
+      "Publish SHA-tagged image": "success",
+      "Deploy and verify staging": "success"
+    }
+  },
+  "first-deployment": {
+    "status": "success",
+    "deploymentId": "44729423585-1",
+    "commit": "02a32e760e10e12acf75aedcd32a86a09efb6a65",
+    "image": "ghcr.io/windowambassador/support-ticket-service@sha256:b9ad5880a665fba928955e20588c6150ab77b37fc7764a63c3b0b43c55644bf9",
+    "imageId": "sha256:b9ad5880a665fba928955e20588c6150ab77b37fc7764a63c3b0b43c55644bf9",
+    "containerId": "5c2b9b3d1286d3fe20f91a58cc7454432f21a2cad37de973a8fb2e3a08f514dc",
+    "project": "support-staging",
+    "port": 18080,
+    "runUrl": "https://github.com/windowambassador/support-ticket-service/actions/runs/44729423585",
+    "checks": {
+      "readiness": "UP",
+      "categories": 4,
+      "tickets": 0,
+      "reportTotalCreated": 0,
+      "openApi": "passed"
+    },
+    "completedAt": "2026-11-20T11:48:13.096767+00:00",
+    "releaseDirectory": "/srv/support-service/releases/44729423585-1"
+  },
+  "first-release": {
+    "tag": "ghcr.io/windowambassador/support-ticket-service:02a32e760e10e12acf75aedcd32a86a09efb6a65",
+    "image": "ghcr.io/windowambassador/support-ticket-service@sha256:b9ad5880a665fba928955e20588c6150ab77b37fc7764a63c3b0b43c55644bf9",
+    "imageId": "sha256:74ece0550334b30618fd1d9efc3c81691eeaca9c83fec1726367af45ebdc8b78",
+    "commit": "02a32e760e10e12acf75aedcd32a86a09efb6a65"
+  },
+  "gate": {
+    "id": 44730702311,
+    "url": "https://github.com/windowambassador/support-ticket-service/actions/runs/44730702311",
+    "sha": "02a32e760e10e12acf75aedcd32a86a09efb6a65",
+    "conclusion": "failure",
+    "jobs": {
+      "Format, build and test": "failure",
+      "Build Docker image": "skipped",
+      "Deploy and verify staging": "skipped",
+      "Publish SHA-tagged image": "skipped"
+    }
+  },
+  "pr2": {
+    "id": 44729100435,
+    "url": "https://github.com/windowambassador/support-ticket-service/actions/runs/44729100435",
+    "sha": "12d74993c1c7304a04721b310580b0f06cffa56d",
+    "conclusion": "success",
+    "jobs": {
+      "Format, build and test": "success",
+      "Build Docker image": "success",
+      "Publish SHA-tagged image": "skipped",
+      "Deploy and verify staging": "skipped"
+    }
+  },
+  "second": {
+    "id": 44731034319,
+    "url": "https://github.com/windowambassador/support-ticket-service/actions/runs/44731034319",
+    "sha": "e6b365b792cc39cc974f373eaaf5713ba891c2a6",
+    "conclusion": "success",
+    "jobs": {
+      "Format, build and test": "success",
+      "Build Docker image": "success",
+      "Publish SHA-tagged image": "success",
+      "Deploy and verify staging": "success"
+    }
+  },
+  "second-deployment": {
+    "status": "success",
+    "deploymentId": "44731034319-1",
+    "commit": "e6b365b792cc39cc974f373eaaf5713ba891c2a6",
+    "image": "ghcr.io/windowambassador/support-ticket-service@sha256:cda029502d43a8308959cba8c99030803207f219b10bfd7d5bd77764a0be4bd1",
+    "imageId": "sha256:cda029502d43a8308959cba8c99030803207f219b10bfd7d5bd77764a0be4bd1",
+    "containerId": "48aff0a8e5ad17d5ff5754e1c2ac1bc5eaa61b291246d1c1b11da06498cd4420",
+    "project": "support-staging",
+    "port": 18080,
+    "runUrl": "https://github.com/windowambassador/support-ticket-service/actions/runs/44731034319",
+    "checks": {
+      "readiness": "UP",
+      "categories": 4,
+      "tickets": 1,
+      "reportTotalCreated": 1,
+      "openApi": "passed"
+    },
+    "completedAt": "2026-11-20T11:58:02.884795+00:00",
+    "releaseDirectory": "/srv/support-service/releases/44731034319-1"
+  },
+  "second-release": {
+    "tag": "ghcr.io/windowambassador/support-ticket-service:e6b365b792cc39cc974f373eaaf5713ba891c2a6",
+    "image": "ghcr.io/windowambassador/support-ticket-service@sha256:cda029502d43a8308959cba8c99030803207f219b10bfd7d5bd77764a0be4bd1",
+    "imageId": "sha256:15e431098f27c742986d991e7e2a3506f17856ca6d1bbdfee8a37f12c897fd11",
+    "commit": "e6b365b792cc39cc974f373eaaf5713ba891c2a6"
+  },
+  "second-tests": {
+    "tests": 507,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "coverage": {
+      "INSTRUCTION": [
+        2370,
+        50
+      ],
+      "BRANCH": [
+        204,
+        10
+      ],
+      "LINE": [
+        488,
+        11
+      ],
+      "COMPLEXITY": [
+        242,
+        11
+      ],
+      "METHOD": [
+        142,
+        2
+      ],
+      "CLASS": [
+        50,
+        0
+      ]
+    }
+  },
+  "probe": {
+    "id": 44731901499,
+    "url": "https://github.com/windowambassador/support-ticket-service/actions/runs/44731901499",
+    "sha": "e6b365b792cc39cc974f373eaaf5713ba891c2a6",
+    "conclusion": "failure",
+    "jobs": {
+      "probe": "failure"
+    }
+  },
+  "health-log-confirmation": {
+    "job": "https://github.com/windowambassador/support-ticket-service/actions/runs/44731901499/job/136273536152",
+    "lines": [
+      "2026-11-20T11:59:36.5092135Z container health-probe-44731901499-1-app-1 is unhealthy",
+      "2026-11-20T11:59:37.0499033Z  Container health-probe-44731901499-1-app-1 Removed ",
+      "2026-11-20T11:59:37.5397943Z  Container health-probe-44731901499-1-postgres-1 Removed ",
+      "2026-11-20T11:59:37.5596745Z  Volume health-probe-44731901499-1_postgres-data Removed ",
+      "2026-11-20T11:59:37.9274248Z  Network health-probe-44731901499-1_default Removed "
+    ]
+  },
+  "rollback": {
+    "from": {
+      "status": "success",
+      "deploymentId": "44731034319-1",
+      "commit": "e6b365b792cc39cc974f373eaaf5713ba891c2a6",
+      "image": "ghcr.io/windowambassador/support-ticket-service@sha256:cda029502d43a8308959cba8c99030803207f219b10bfd7d5bd77764a0be4bd1",
+      "imageId": "sha256:cda029502d43a8308959cba8c99030803207f219b10bfd7d5bd77764a0be4bd1",
+      "containerId": "48aff0a8e5ad17d5ff5754e1c2ac1bc5eaa61b291246d1c1b11da06498cd4420",
+      "project": "support-staging",
+      "port": 18080,
+      "runUrl": "https://github.com/windowambassador/support-ticket-service/actions/runs/44731034319",
+      "checks": {
+        "readiness": "UP",
+        "categories": 4,
+        "tickets": 1,
+        "reportTotalCreated": 1,
+        "openApi": "passed"
+      },
+      "completedAt": "2026-11-20T11:58:02.884795+00:00",
+      "releaseDirectory": "/srv/support-service/releases/44731034319-1"
+    },
+    "to": {
+      "status": "success",
+      "deploymentId": "44729423585-1",
+      "commit": "02a32e760e10e12acf75aedcd32a86a09efb6a65",
+      "image": "ghcr.io/windowambassador/support-ticket-service@sha256:b9ad5880a665fba928955e20588c6150ab77b37fc7764a63c3b0b43c55644bf9",
+      "imageId": "sha256:b9ad5880a665fba928955e20588c6150ab77b37fc7764a63c3b0b43c55644bf9",
+      "containerId": "f623c5d6ec595ad49e1db318bfb72097c2d0d033f394f60ddf9375e1dda75c9c",
+      "project": "support-staging",
+      "port": 18080,
+      "runUrl": "https://github.com/windowambassador/support-ticket-service/actions/runs/44729423585",
+      "checks": {
+        "readiness": "UP",
+        "categories": 4,
+        "tickets": 1,
+        "reportTotalCreated": 1,
+        "openApi": "passed"
+      },
+      "completedAt": "2026-11-20T11:48:13.096767+00:00",
+      "releaseDirectory": "/srv/support-service/releases/44729423585-1"
+    },
+    "ticket": "0563375f-204f-4699-8318-5f4af6daa1e6",
+    "historyEqual": true,
+    "cardEqual": true,
+    "readiness": "UP"
+  },
+  "ticket": {
+    "created": 201,
+    "id": "0563375f-204f-4699-8318-5f4af6daa1e6",
+    "accepted": [
+      200,
+      200
+    ],
+    "denied": 409,
+    "error": "STATE_CONFLICT",
+    "card": {
+      "id": "0563375f-204f-4699-8318-5f4af6daa1e6",
+      "title": "Проверка принтера для итоговой демонстрации",
+      "description": "",
+      "category": {
+        "id": 1,
+        "name": "Оборудование"
+      },
+      "priority": "HIGH",
+      "status": "RESOLVED",
+      "createdAt": "2026-11-20T11:49:21.554144Z",
+      "dueAt": null,
+      "closedAt": "2026-11-20T11:49:21.624188Z",
+      "overdue": false
+    },
+    "history": [
+      {
+        "id": 1,
+        "fromStatus": "NEW",
+        "toStatus": "IN_PROGRESS",
+        "changedAt": "2026-11-20T11:49:21.609340Z"
+      },
+      {
+        "id": 2,
+        "fromStatus": "IN_PROGRESS",
+        "toStatus": "RESOLVED",
+        "changedAt": "2026-11-20T11:49:21.624188Z"
+      }
+    ],
+    "report": {
+      "from": "2000-01-01T00:00:00Z",
+      "to": "2100-01-01T00:00:00Z",
+      "totalCreated": 1,
+      "byStatus": {
+        "NEW": 0,
+        "RESOLVED": 1,
+        "IN_PROGRESS": 0,
+        "CANCELLED": 0
+      },
+      "byPriority": {
+        "HIGH": 1,
+        "MEDIUM": 0,
+        "LOW": 0
+      },
+      "openOverdue": 0,
+      "averageResolutionSeconds": 0.070044
+    }
+  }
+}
